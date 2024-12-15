@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>高端大气的吴晶晶网页</title>
+    <style>
+        /* 页面全局样式 */
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgba(255, 255, 255, 0.8); /* 半透明白色背景 */
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        /* 背景音乐播放器样式 */
+        .audio-container {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .audio-container audio {
+            margin-right: 10px;
+        }
+
+        .audio-container button {
+            background-color: #fff;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #333;
+        }
+
+        .audio-container button:hover {
+            background-color: #f1f1f1;
+        }
+
+        /* 吴晶晶文字效果 */
+        .text-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: #333;
+            font-size: 80px;
+            font-weight: bold;
+            letter-spacing: 5px;
+            animation: fadeIn 3s ease-out forwards;
+        }
+
+        /* 文字渐现动画 */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -60%);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%);
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 显示吴晶晶的文字 -->
+    <div class="text-container">
+        吴晶晶
+    </div>
+
+    <!-- 背景音乐控制 -->
+    <div class="audio-container">
+        <audio id="bgMusic" loop>
+            <source src="http://nf.sycdn.kuwo.cn/68af57d05347236edc67222c1c942dc7/675e460e/resource/n1/81/69/1197049046.mp3" type="audio/mp3">
+            您的浏览器不支持音频播放。
+        </audio>
+        <button id="playPauseBtn">播放</button>
+    </div>
+
+    <script>
+        const audio = document.getElementById('bgMusic');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+
+        // 音乐播放和暂停的控制
+        playPauseBtn.addEventListener('click', function() {
+            if (audio.paused) {
+                audio.play();
+                playPauseBtn.textContent = '暂停';
+            } else {
+                audio.pause();
+                playPauseBtn.textContent = '播放';
+            }
+        });
+    </script>
+
+</body>
+</html>
